@@ -5,14 +5,14 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.vm.box = "precise64"
+    config.vm.box = "ubuntu/trusty64"
 
-    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    # config.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20160107.1.0/providers/virtualbox.box"
     
     config.vm.network :private_network, ip: "192.168.10.54"
     config.vm.network :forwarded_port, guest: 80, host: 8055
 
-    config.vm.provision :shell, :path => "install.sh"
+    # config.vm.provision :shell, :path => "install.sh"
 
     config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777", "fmode=666"]
 
